@@ -1,0 +1,1219 @@
+@import url('meyerreset.css');
+@import url('typography.css');
+@import url('buttons.less');
+@import url('mobile.less');
+
+@black: #000000;
+@red:   #ff0000;
+@grey: #f5f5f5;
+@white: #ffffff;
+
+
+/* Large Screens ----------- */
+@media (min-device-width : 481px) {
+
+html {
+	width:100%;
+	height:100%;
+	height: auto;
+	min-height: 100%;
+	margin: 0 auto;
+	box-sizing: border-box;
+} // html
+
+body {
+	height: 100%;
+	height: auto;
+	min-height: 100%;
+	margin: 0 auto; // prevent body from collapsing on grid pages
+}
+
+
+a:hover {
+	text-decoration: none;
+}
+
+.clearfix:after { 
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
+.hide {
+	display:none !important;
+}
+
+// retina.less
+// A helper mixin for applying high-resolution background images (http://www.retinajs.com)
+
+.at2x(@path, @w: auto, @h: auto) {
+  background-image: url(@path);
+  @at2x_path: ~`"@{path}".split('.').slice(0, "@{path}".split('.').length - 1).join(".") + "@2x" + "." + "@{path}".split('.')["@{path}".split('.').length - 1]`;
+
+  @media all and (-webkit-min-device-pixel-ratio : 1.5) {
+    background-image: url(@at2x_path);
+    background-size: @w @h;
+  }  
+}
+// HOME PAGE 
+//------------------------------------------------------------------
+
+
+#home {
+	background: url('../assets/images/diagonaloverlay4x4px.png') repeat,
+				url('../assets/images/home1600.png') center no-repeat,
+				@black;
+		-webkit-background-size: auto, cover;
+		   -moz-background-size: auto, cover;
+			 -o-background-size: auto, cover;
+				background-size: auto, cover;
+			} 
+	height:100%;
+	margin: 0 auto;
+
+	#transbackground {
+		height: 330px;
+		width: 858px;
+		background-color: @black;
+		top:185px;
+		position:relative;
+		margin-right:auto;
+		margin-left:auto;
+		opacity: .7;
+		border-bottom:1px dashed @white;
+	} // #transbackground
+
+	#redbar {
+		// top: 185px;
+		// width: 858px;
+		position:relative;
+		margin:0 auto;
+	} //#redbar
+
+	#headline {
+		width: 645px;
+		text-align: center;
+		position:relative;
+		top: -130px;
+		margin-right: auto;
+		margin-left:auto;
+	} // headline
+} // #home
+
+
+
+
+// NAV BAR STYLES FOR HEADER AND FOOTER
+//---------------------------------------------------------------
+.header {
+	color: @white;
+	top:0;
+	position:relative;
+	display:block;
+	width: 100%;
+	height: 380px;
+	padding-bottom: 25px;
+	background: @black; // make nav black 100%
+
+} // header
+
+
+.footer {
+	background-color: @black;
+	color:white;
+	// height:75px;
+	border-top: 1px dashed @white;
+	bottom:0;
+	position:absolute;
+	display:block;
+	width: 100%;
+} // footer
+
+
+	.navbarWrap {
+		width:1200px;
+		position:relative;
+		height: 75px;
+		margin: 0 auto;
+		background-color: @black;
+		// border-bottom: 1px dashed white;
+		border-top:none;
+
+		
+		.nav {
+			width: 1200px;
+			height:100%;
+			margin: 0 auto;
+		} // nav
+
+		
+		.navselected {
+			position:absolute;
+			display:block;
+
+			// right: 0;
+		}
+		#logo, #nav, #social {
+			display: inline;
+			float:left;
+		} // logo nav social
+		
+
+
+		#logo {
+			margin-left: 100px;
+			margin-top:11px;
+			padding-right:45px;
+		} //logo
+
+		#social {
+			padding-top: 10px; // 10px // 19.5px
+			height: 33px;
+			width: 177px; // was 140px without tumblr icon
+			// margin-left: 60px;
+
+			img {
+				padding-right:20px;
+				display:inline;
+			} // img
+
+			#madeinny {
+				display: inline;
+			
+					.show {
+						display:inline;
+					}
+
+					.hide {
+						display:none;
+					}
+			//Made in NY Hoverstate triggered by jquery
+
+				#hoverstate {
+					// width: 75px;
+					height: 100px;
+					// display: inline; toggle this with jquery
+
+					#textbox {
+						height: 60px;
+						width:75px;
+						background-color:@white;
+						position:relative;
+						top: -100px;
+						left: 106px;
+
+						h4 {
+							padding-top: 12px;
+							text-align: center;
+						} // h4
+
+						span {
+							font-size: 32px;
+						} // span
+					} //textbox
+					
+					#arrow {
+						width: 0; 
+						height: 0; 
+						border-left: 6px solid transparent;
+						border-right: 6px solid transparent;
+						border-top: 6px solid @white;
+						position:absolute;
+						top: 54px;
+						right: 87px !important;
+					} // arrow
+
+				} // #hoverstate
+			} // #madeinny
+			} //social
+	
+
+		#nav {
+			margin-left: 10px;
+			ul {
+				//Margins to balance due to removing jobs link 
+				margin-left: 41px;
+				margin-right: 41px;
+				height: 100%;
+				li {
+				display:inline;
+				text-transform: uppercase;
+				// padding-right: 45px;
+				line-height: 75px;
+				padding-top: 30px;
+				padding-bottom: 30px;
+				} // li
+		 		 a { 
+					text-decoration: none;
+					color:@white;
+					padding-top: 30px;
+					padding-bottom: 30px;
+					margin-right: 45px;
+
+				} //a
+			} //ul 
+		} // #nav
+
+} // .navbarwrap
+
+// PORTFOLIO PAGE STYLES
+//-----------------------------------------//
+.header {
+	#hoverstate {
+		#textbox {
+			top: 15px !important;
+			left: 107px !important;
+			-webkit-box-shadow: -2px 2px 0px rgba(0, 0, 0, 1);
+			-moz-box-shadow:    -2px 2px 0px rgba(0, 0, 0, 1);
+			box-shadow:         -2px 2px 0px rgba(0, 0, 0, 1);
+		}// #textbox
+
+		#arrow {
+			//change arrow to pointing up
+			border-bottom: 6px solid @white !important;
+			border-top: none !important;
+		} // #arrow
+	} // #hoverstate
+
+
+	.headimg {
+		margin: 0 auto;
+		width: 100%;
+		height:330px;
+		img {
+			min-width: 1600px;
+			height: 330px;
+			margin: 0 auto;
+			display:block;
+		}
+	} // headimg
+
+	.boxwrap {
+		width: 1020px;
+		margin: 0 auto;
+		top: -257px;
+		position:relative;
+		height: 227px;
+	}
+
+	.titlebox {
+		width: 490px;
+		height: 227px;
+		background-color: @black;
+		position: relative;
+		border-bottom: 1px dashed @white;
+		text-align: center;
+		h1 {
+			padding-top: 25px;
+		}
+		img {
+			padding-top: 9px;
+		}
+	} // titlebox
+
+
+} // header
+
+.portfolio {
+	.headimg {
+		background: 
+			url('../assets/images/portfolio1600.png') center no-repeat,
+			url('../assets/images/diagonaloverlay4x4px.png') repeat, 
+			@black;
+		-webkit-background-size: auto, cover;
+		   -moz-background-size: auto, cover;
+			 -o-background-size: auto, cover;
+				background-size: auto, cover;
+			
+		height:100%;
+		margin: 0 auto;
+	}
+
+	
+	body {
+		height:100%;
+		background-color:@black;
+		margin: 0 auto;
+	}
+} // .portfolio
+
+#portfolio {
+	height: 100%;
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 60px;
+
+	#title {
+		padding-top: 15px;
+		padding-left: 20px;
+		float: left;
+	}
+
+	#filter {
+		float:left;
+		left: 300px;
+		position:relative;
+		width: 450px;
+
+		#redbar {
+			position:absolute;
+		}
+
+		#showAll, #filterEast, #filterWest {
+			float:left;
+			height: 50px;
+			width: 150px;
+			cursor:pointer;
+			h3 {
+				cursor:pointer;
+			}
+		}
+		.bar {
+			background-color:@black;
+			width:150px;
+			height: 5px;
+		} //bar 
+		h3 {
+			text-align:center;
+			margin-top: 15px;
+		} //h3 
+	} // filter
+
+	#companygrid {
+		width: 1020px;
+		clear:both;
+		padding-top: 20px;
+		box-sizing:border-box;
+
+
+	// Global formatting for each card 
+
+		.hide {
+			display:none;
+		}
+
+		.company{
+			height: 245px;
+			width: 255px;
+			float:left;
+			box-sizing: border-box;
+			a {
+				display:block;
+				z-index:1;
+			} //a
+
+				
+				.rollover {
+					display:none;
+					height: 245px;
+					width: 255px;
+					position: relative;
+					z-index: 2;
+
+					.shade {
+					z-index: 3;
+					background-color: @white;
+					height: 245px;
+					top: -215px;
+					opacity: .8;
+					display: block;
+					}
+
+					.rollContent {
+						height: 245px;
+						position:relative;
+						top: -245px;
+
+						.companyname {
+							position:relative;
+							top: 90px;
+						}
+						.city {
+							position:relative;
+							top: 100px;
+						}
+					
+
+						.links {
+							position:relative;
+							// width: 170px;
+							margin-left:45px;
+							top: 150px;
+						} //links
+					}// rollcontent
+				} // rollover
+			} //pure-u-1-4
+
+
+
+				.trapezoid {
+						position:relative;
+						top: -9px;
+						left: 152px;
+						border-bottom: 20px solid red;
+						border-left: 20px solid transparent;
+						border-right: 20px solid transparent;
+						height: 0;
+						width: 88px;
+
+						//rotate
+						/* Safari */
+						-webkit-transform: rotate(45deg);
+
+						/* Firefox */
+						-moz-transform: rotate(45deg);
+
+						/* IE */
+						-ms-transform: rotate(45deg);
+
+						/* Opera */
+						-o-transform: rotate(45deg);
+
+						/* Internet Explorer */
+						filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);	
+					}
+
+
+
+				.acquired {
+					.companyname {
+						position:relative;
+						top: 103.5px;
+					}
+					.city {
+						position:relative;
+						top: 117px;
+					}
+
+					.banner {
+						text-transform: uppercase;
+						background-color: @red;
+						border-bottom: 2px solid black;
+					}
+
+					hr {
+						width: 130px;
+						height: 2px;
+						background-color: @black;
+						border: 1px black;
+						position:relative;
+						top: -32px; //-20px;
+						left: 143px; //81px;
+
+							//rotate
+						/* Safari */
+						-webkit-transform: rotate(45deg);
+
+						/* Firefox */
+						-moz-transform: rotate(45deg);
+
+						/* IE */
+						-ms-transform: rotate(45deg);
+
+						/* Opera */
+						-o-transform: rotate(45deg);
+
+						/* Internet Explorer */
+						filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+
+					} // hr
+
+				} // .acquired 
+
+				#admittedly {
+					background-image: url('../assets/portfoliologos/admittedly.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+
+				#artsicle {
+					background-image: url('../assets/portfoliologos/artsicle.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#amicus {
+					background-image: url('../assets/portfoliologos/amicus.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#adcade {
+					background-image: url('../assets/portfoliologos/adcade.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#august{
+					background-image: url('../assets/portfoliologos/august.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+	
+				#bench {
+					background-image: url('../assets/portfoliologos/bench.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+
+				#brassmonkey {
+					background-image: url('../assets/portfoliologos/brassmonkey.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+
+				#bringmethat {
+					background-image: url('../assets/portfoliologos/bringmethat.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+
+				#brightnest {
+					background-image:  url('../assets/icons/acquired.png'), url('../assets/portfoliologos/brightnest.png');
+					background-repeat:no-repeat;
+					background-position: top right, center;
+				}
+				#circa {
+					background-image: url('../assets/portfoliologos/circa.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#clip {
+					background-image: url('../assets/portfoliologos/clip.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#clothia {
+					background-image: url('../assets/portfoliologos/clothia.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#comprehend {
+					background-image: url('../assets/portfoliologos/comprehend.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+
+				#docracy {
+					background-image: url('../assets/portfoliologos/docracy.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#faithstreet {
+					background-image: url('../assets/portfoliologos/faithstreet.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#fieldlens {
+					background-image: url('../assets/portfoliologos/fieldlens.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#grandst {
+					background-image: url('../assets/icons/acquired.png'), url('../assets/portfoliologos/grandst.png');
+					background-repeat:no-repeat;
+					background-position: top right, center;
+				}
+				#hitpost {
+					background-image: url('../assets/icons/acquired.png'), url('../assets/portfoliologos/hitpost.png');
+					background-repeat:no-repeat;
+					background-position: top right, center;
+				}
+				#ideame {
+					background-image: url('../assets/portfoliologos/ideame.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#imrsv {
+					background-image: url('../assets/portfoliologos/imrsv.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#disruptionvc{
+					background-image: url('../assets/portfoliologos/disruptionvc.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#keychain {
+					background-image: url('../assets/portfoliologos/keychain.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#knodes {
+					background-image: url('../assets/portfoliologos/knodes.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#launchrock {
+					background-image: url('../assets/portfoliologos/launchrock.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#lawpivot{
+					background-image: url('../assets/icons/acquired.png'), url('../assets/portfoliologos/lawpivot.png');
+					background-repeat:no-repeat;
+					background-position: top right, center;
+				}
+				#locu {
+					background: url('../assets/icons/acquired.png'), url('../assets/portfoliologos/locu.png');
+					background-repeat:no-repeat;
+					background-position: top right, center;
+				}
+				#loverly {
+					background-image: url('../assets/portfoliologos/loverly.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#matchbook {
+					background-image: url('../assets/portfoliologos/matchbook.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#memoir {
+					background-image: url('../assets/portfoliologos/memoir.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#moveline {
+					background-image: url('../assets/portfoliologos/moveline.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#nestio{
+					background-image: url('../assets/portfoliologos/nestio.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#paintzen{
+					background-image: url('../assets/portfoliologos/paintzen.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#smartasset {
+					background-image: url('../assets/portfoliologos/smartasset.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#smileback {
+					background-image: url('../assets/portfoliologos/smileback.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#snapjoy {
+					background-image: url('../assets/icons/acquired.png'), url('../assets/portfoliologos/snapjoy.png');
+					background-repeat:no-repeat;
+					background-position: top right, center;
+				}
+				#sponsorhub {
+					background-image: url('../assets/portfoliologos/Sponsorhub.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#stypi {
+					background-image: url('../assets/icons/acquired.png'), url('../assets/portfoliologos/stypi.png');
+					background-repeat:no-repeat;
+					background-position: top right, center;
+				}
+				#supplyhog {
+					background-image: url('../assets/portfoliologos/supplyhog.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#tagstand {
+					background-image: url('../assets/portfoliologos/tagstand.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#tapad {
+					background-image: url('../assets/portfoliologos/tapad.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#tapengage {
+					background-image: url('../assets/icons/acquired.png'), url('../assets/portfoliologos/tapengage.png');
+					background-repeat:no-repeat;
+					background-position: top right, center;
+				}
+				#thinkful {
+					background-image: url('../assets/portfoliologos/thinkful.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#thinkup {
+					background-image: url('../assets/portfoliologos/thinkup.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#urtak {
+					background-image: url('../assets/portfoliologos/urtak.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#versa {
+					background-image: url('../assets/portfoliologos/versa.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#videolicious {
+					background-image: url('../assets/portfoliologos/videolicious.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#wallaby {
+					background-image: url('../assets/portfoliologos/wallaby.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#wantworthy {
+					background-image: url('../assets/portfoliologos/wantworthy.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#wehostels {
+					background-image: url('../assets/icons/acquired.png'), url('../assets/portfoliologos/wehostels.png');
+					background-repeat:no-repeat;
+					background-position: top right, center;
+				}
+				#wepow {
+					background-image: url('../assets/portfoliologos/wepow.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#yesgraph {
+					background-image: url('../assets/portfoliologos/yesgraph.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+				#zerply {
+					background-image: url('../assets/portfoliologos/zerply.png');
+					background-repeat:no-repeat;
+					background-position: center;
+				}
+
+			} // companygrid
+	
+
+
+	ul.twoLinks {
+		margin: 0 auto;
+		width: 150px;
+}
+	
+
+
+}// #portfolio 
+
+//--------------------CONTACT PAGE STYLES ---------------------------
+
+.contact {
+	.headimg {
+	background: 
+		url('../assets/images/diagonaloverlay4x4px.png') repeat,
+		url('../assets/images/contact1600.png') no-repeat, 
+		@black;
+	-webkit-background-size: auto, cover;
+	   -moz-background-size: auto, cover;
+		 -o-background-size: auto, cover;
+			background-size: auto, cover;
+	} 
+}
+
+
+#contact {
+	max-width: 1020px;
+	margin: 0 auto;
+
+	#email {
+		.liner {
+			margin-top: 60px;	
+			padding-left:20px;
+			h2 {
+				margin-bottom: 30px;
+			}
+			ul li {
+				padding-bottom: 20px;
+			}
+		} // liner
+	} // email
+	#online {
+		h2 {
+			padding-bottom: 20px;
+		} // h2
+		.liner {
+			margin-top: 60px;
+			padding-left: 20px;
+		} // .liner
+	} // #online
+
+	
+	#map {
+		margin-top: 90px;
+		clear: both;
+		width: 97%;
+		margin-left:auto;
+		margin-right:auto;
+		h2 {
+			display:block;
+			float:left;
+			margin-bottom: 25px;
+			padding-left: 5px;
+		} // h2
+		#address {
+			display: block;
+			float:left;
+			padding-top: 15px;
+			padding-left: 15px;
+		} // #address
+	} // #map
+
+	#press {
+		margin-top: 60px;
+		padding-left: 20px;
+		padding-bottom: 90px;
+		h2 {
+			padding-bottom: 30px;
+		}
+		ul li {
+			padding-bottom: 20px;
+		}
+	} // #press
+} // #contact
+
+//--------------------PHILOSPHY PAGE STYLES ---------------------------
+
+.philosophy {
+
+	.headimg {
+		background: 
+			url('../assets/images/diagonaloverlay4x4px.png') repeat,
+			url('../assets/images/philosophy1600.png') no-repeat;
+		-webkit-background-size: auto, cover;
+		   -moz-background-size: auto, cover;
+			 -o-background-size: auto, cover;
+				background-size: auto, cover;
+	} 
+			
+		
+	#weInvest {
+		width: 1020px;
+		margin: 0 auto;
+		h2 {
+			text-align: center;
+			padding-top: 50px;
+			padding-bottom: 50px;
+		}
+		.pure-u-1-2 {
+			height: 100px;
+			text-align: center;
+			.liner {
+			padding-left:80px;
+			padding-right: 80px;
+			margin-bottom: 50px;
+			}
+		} // pure
+		.pure-u-1 {
+			text-align: center;
+			margin-top:30px;
+			.liner {
+				padding-top: 20px;
+			}
+		} // pure
+	} // #weInvest
+
+	#wanttoknow {
+		height: 560px;
+		width: 1020px;
+		background-color: @grey;
+		margin-top: 80px;
+		h2 {
+			padding-top: 40px; // should really be 30
+			text-align:center;
+			padding-bottom: 30px; // should really be 30
+		}
+		.pure-u-1-2  {
+			height:auto;
+			margin-bottom: 25px;
+			.liner {
+				text-align: left;
+				padding-left: 40px;
+				width: 420px;
+				margin:0;
+				height: auto;
+				margin-bottom: 20px;
+			} // liner
+		} // pure
+	} // #wanttoknow
+
+	.buttonwrap {
+		height: 150px;
+		margin-top: 110px;
+		.button {
+			width: 232px;
+			// height: 45px;
+			margin: 0 auto;
+			margin-bottom: 100px;
+			margin-top: 60px;
+			background-color: #ec1c2d;
+			a {
+				padding-left: 41.5px;
+				padding-right:41.5px;
+				line-height: 53px;
+				position:relative;
+				color: white;
+				display:block;
+				vertical-align: middle;
+			}// a	
+		} // .button
+		.button:hover {
+			background: url('../assets/images/diagonaloverlay4x4px 2.png') repeat,
+			@red;
+		}
+	} // .buttonwrap
+} // philosphy
+
+//--------------------TEAM PAGE STYLES ---------------------------
+#team .titlebox h1 {
+	width: 488px;
+}
+
+
+.dashedLineH {
+	background:@black;
+	height:1px;
+	clear:both;
+	width: 100%;
+
+	hr {
+		// color:white;
+		border-top: 1px dashed white;
+		margin: 0;
+	}
+}
+
+.shortLine {
+	width:25%;
+}
+
+
+.spacer {
+	margin-top: 1px;
+}
+
+.floatRight {
+	float:right;
+}
+.vertLine {
+	width:1px;
+	height: 245px;
+	background:black;
+	float:left;
+	background: url('../assets/images/dashedline.png') repeat, @black;
+}
+
+.team {
+		.headimg {
+		background: 
+			url('../assets/images/diagonaloverlay4x4px 2.png') repeat,
+			url('../assets/images/team1600.png') no-repeat, 
+			@black;
+		-webkit-background-size: auto, cover;
+		   -moz-background-size: auto, cover;
+			 -o-background-size: auto, cover;
+				background-size: auto, cover;
+			} 	
+} //.team
+
+
+#teamgrid {
+	width: 1024px;
+	margin: 0 auto;
+	margin-top: 60px;
+	padding-bottom: 60px;
+	display: table;
+
+
+	.show {
+		display:block;
+	}
+
+
+	.liner {
+		padding: 30px 40px 0 20px;
+
+		h3 {
+			margin-bottom:3px;
+		}
+	} // .liner
+
+	.half {
+		height: 245px;
+		// border: 1px dashed white;
+		box-sizing:border-box;
+		float:left;
+		width: 50%;
+		// width:510px;
+	}
+
+	.quarter{
+		height: 245px;
+		// border: 1px dashed white;
+		box-sizing:border-box;
+		width: 255px;
+		float:left;
+		display:table-cell;
+		border-collapse:collapse;
+	}
+
+	.categoryblock {
+		background-color:@black;
+		color:white;
+		text-align:center;
+		line-height: 245px;
+		height: 245px;
+		width: 255px;
+		border-left: none;
+		// border-bottom:1px dashed white;
+	}
+	.long {
+			line-height: 55px;
+			padding-top: 67.5px;
+		}
+
+	.rollover {
+		display:none;
+		// display: block;
+		top: -248px;
+		height: 245px;
+		width: 255px;
+		position: relative;
+		z-index: 2;
+
+		.shade{
+			background-color:black;
+			opacity: .7;
+			z-index: 3;
+			height: 100%;
+			width:100%;
+			// top: -215px;
+			// position: relative;
+			display: block;
+		}
+
+		.name {
+			display:block;
+			position:relative;
+			top: -157px;
+			text-align:center;
+		}
+
+		.title {
+			display:block;
+			position:relative;
+			top: -140px;
+			text-align:center;
+			height: 32px;
+		}
+
+		.socialButtons {
+			width: 120px;
+			margin: 0 auto;
+			top: -120px;
+			display:block;
+			position:relative;
+			height: 50px;
+
+			ul {
+				height: 50px;
+			} // ul
+		} // socialButtons
+
+
+	} //rollover
+
+		#pedro {
+			.socialButtons {
+				text-align:left;
+				top: 178px;
+				margin-left: 30px;
+			}
+		}
+
+} //teamgrid
+
+	.teamshow {
+		display:block !important;
+	}
+
+.news {
+
+	.headimg {
+		background: 
+			url('../assets/images/diagonaloverlay4x4px 2.png') repeat,
+			url('../assets/images/news1600.png') no-repeat, 
+			@black;
+		-webkit-background-size: auto, cover;
+		   -moz-background-size: auto, cover;
+			 -o-background-size: auto, cover;
+				background-size: auto, cover;	
+	}
+
+} // .news
+
+
+.news #tint {
+	max-width: 1200px;
+	margin: 0 auto;
+	margin-top: 20px;
+
+}
+
+// JOBS PAGE
+/*------------------------------------------------------------- */
+#jobs {
+	letter-spacing: 1px;
+
+
+	.headimg {
+		background: 
+			url('../assets/images/diagonaloverlay4x4px 2.png') repeat,
+			url('../assets/images/jobs1600.png') no-repeat, 
+			@black;
+		-webkit-background-size: auto, cover;
+		   -moz-background-size: auto, cover;
+			 -o-background-size: auto, cover;
+				background-size: auto, cover;
+			} 
+	} // jobs
+
+
+// Large Screens 
+/*------------------------------------------------------------- */
+
+
+@media (max-width: 480px) {
+	html {
+		width: 480px;
+	}
+	#teamgrid {
+		width: 480px;
+		
+		.pure-u-1-2 {
+			height: 230px;
+		}
+		.pure-u-1-4, .categoryblock {
+			float:left;
+			width: 240px;
+			height: 230px;
+		}
+		.shade, .rollover {
+			height: 230px ;
+			width: 240px ;
+		}
+		.rollover {
+			top: -233px;
+		}
+	}
+
+}  // Large screens media query 
+
+
