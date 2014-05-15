@@ -1,10 +1,9 @@
 var express = require('express');
 var app = express();
+var logfmt = require("logfmt");
 
-// app.get('/', function(req, res){
-//   res.send('hello world');
-// });
+app.use(logfmt.requestLogger());
 
-app.use(express.static(__dirname+"/public"));
+app.use(express.static(__dirname + "/public"));
 
 app.listen(5000);
