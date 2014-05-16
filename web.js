@@ -6,4 +6,5 @@ app.use(logfmt.requestLogger());
 
 app.use(express.static(__dirname + "/public"));
 
-app.listen(5000);
+var port= process.env.PORT || 5000;
+app.listen(port);
