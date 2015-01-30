@@ -40,7 +40,7 @@ $(document).ready(function () {
 $(document).ready(function () {
 
     $.fn.checkPosition = function () {
-        return this.index() === $('#martina').index() || this.index() === $('#heather').index() || this.index() === $('#conrad').index();
+        return this.index() === $('#heather').index() || this.index() === $('#alycia').index();
     };
     // Check each team box, if its not on the end, add dashed line
     $(function () {
